@@ -1,0 +1,116 @@
+.content {
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.head {
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.buttons {
+	background-color: black;
+}
+
+.button {
+	float: right;
+}
+
+.rule_table {
+	text-align: center;
+}
+
+.no_rules {
+	text-align: center;
+}
+
+.float{
+position: absolute;
+	width: 300px;
+	vertical-align: middle;
+	z-index: 9999;
+	background-color: #0D72D2;
+	height: 160px;
+	visibility: hidden;
+	border: 8px;
+	border-radius: 5px;
+	box-shadow: 0 1px 0 #4793DA inset, 0 1px 0 #0D4E86;
+}
+
+.empty_div {
+	width: 300px;
+	opacity: 0;
+	background-color: black;
+	margin-left: auto;
+	margin-right: auto;
+	height: 8px;
+}
+
+.float_top {
+	width: 284px;
+	opacity: 1.0;
+	height: 23px;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 23px;
+	font-weight: bold;
+	background: #0D72D2
+}
+
+.add_rules {
+	opacity: 1.0;
+	width: 284px;
+	height: 121px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #0D72D2;
+}
+
+.img_left {
+	float: right;
+}
+
+.input_text {
+}
+
+.text {
+	border-radius: 5px;
+	border: 1px solid #333;
+	line-height: normal;
+	width: 100%;
+	vertical-align: middle 9;
+height: 25px;
+padding: 0;
+		 padding-top: 5;
+}
+
+body {
+	background: url(/bg.png)  #105C9A repeat-x 0 bottom;
+	color: white;
+	vertical-align: baseline;
+	font-weight: bold;
+}
+
+button {
+	background: #0D72D2;
+	font-size: 14px !important;
+	line-height: 17px !important;
+	border: 1px solid #054388;
+	box-shadow: 0 1px 0 #4793DA inset, 0 1px 0 #0D4E86;
+	color: white;
+	cursor: pointer;
+	padding: 6px 15px;
+	border-radius: 3px;
+}
+
+label {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+button:active {
+	background: #0C66C6;
+	box-shadow: 0 1px 4px #094685 inset, 0 1px 0 #598EB8;
+}
