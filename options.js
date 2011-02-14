@@ -1,3 +1,8 @@
+chrome.extension.onRequest.addListener(
+		function(request, sender, return_storage){
+			return_storage(JSON.parse(localStorage.getItem('u2sMappings')));
+		}
+		);
 $(function(){
 		$('#add_rules').bind('click', toggle_show_add_rules);
 		$('#remove_rules').bind('click', remove_rules);
