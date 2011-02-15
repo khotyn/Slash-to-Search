@@ -1,0 +1,11 @@
+<script>
+chrome.extension.onRequest.addListener(
+		function(request, sender, return_storage){
+			if( request.type == 'get_tab_id') {
+				chrome.pageAction.show(sender.tab.id);
+			} else {
+				return_storage(JSON.parse(localStorage.getItem('u2sMappings')));
+			}
+		}
+		);
+</script>
