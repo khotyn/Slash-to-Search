@@ -63,6 +63,7 @@ function toggle_show_add_rules() {
 		var popwinWidth = $('#popwin').width();
 		var popwinHeight = $('#popwin').height();
 		$('#popwin').css('visibility', 'visible').css('left', (windowWidth - popwinWidth) / 2).css('top', (windowHeight - popwinHeight) / 2);
+		$('#url').focus();
 	}
 }
 
