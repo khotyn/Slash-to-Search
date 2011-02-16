@@ -71,9 +71,13 @@ function toggle_show_add_rules() {
 	} else {
 		var windowWidth = document.body.clientWidth;
 		var windowHeight = document.body.clientHeight;
+		while (windowWidth <= 0 || windowHeight <= 0 ) {
+			windowWidth = docuement.body.clientWidth;
+			windowHeight = document.body.clientHeight;
+		}
 		var popwinWidth = $('#popwin').width();
 		var popwinHeight = $('#popwin').height();
-		$('#popwin').css('visibility', 'visible').css('left', (windowWidth - popwinWidth) / 2).css('top', (windowHeight - popwinHeight) / 2);
+		$('#popwin').css('left', (windowWidth - popwinWidth) / 2).css('top', (windowHeight - popwinHeight) / 2).css('visibility', 'visible');
 		$('#url').focus();
 	}
 }
