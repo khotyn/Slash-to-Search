@@ -33,4 +33,12 @@ function keyPress() {
 	}
 }
 
+function send_ele_id(event) {
+	if(event.button == 2) {
+		var id = event.target.id;
+		chrome.extension.sendRequest({'type': 'send_ele_id', 'id': id})			
+	}
+}
+
 document.onkeydown= keyPress;
+document.onmousedown = send_ele_id;

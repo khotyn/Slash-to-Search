@@ -4,6 +4,17 @@ $(function(){
 		$('#close_img').bind('click', toggle_show_add_rules);
 		$('#add').bind('click', add_rules);
 		show_rules();
+		var bg_obj = chrome.extension.getBackgroundPage();
+		if( bg_obj.quick_add == true ) {
+			toggle_show_add_rules();
+			if(bg_obj.url != undefined && bg_obj.search_id != undefined) {
+				$('#url').attr('value', bg_obj.url);
+				$('#searchId').attr('value', bg_obj.search_id);
+			}
+			bg_obj.quick_add = false;
+			bg_obj.url = undefined;
+			bg_obj.search_id = undefined;
+		}
 		});
 
 function remove_rules(){

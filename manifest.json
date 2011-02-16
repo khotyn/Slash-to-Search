@@ -10,7 +10,7 @@
 		}	
 	],
 	"permissions": [
-		"tabs", "*://*/*"
+		"tabs", "*://*/*","contextMenus"
 	],
 	"options_page": "options.html",
 	"page_action": {
