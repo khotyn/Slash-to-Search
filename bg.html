@@ -1,5 +1,5 @@
 <script>
-var search_id;
+var tree_route;
 var url;
 var quick_add = false;
 chrome.extension.onRequest.addListener(
@@ -7,7 +7,7 @@ chrome.extension.onRequest.addListener(
             if( request.type == 'get_tab_id') {
                 chrome.pageAction.show(sender.tab.id);
             } else if (request.type == 'send_ele_id') {
-                search_id = request.id;             
+                tree_route = request.tree_route;             
             } else {
                 return_storage(JSON.parse(localStorage.getItem('u2sMappings')));
             }

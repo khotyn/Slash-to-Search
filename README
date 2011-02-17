@@ -5,10 +5,7 @@ Slash-to-Search is a chrome plugin for those who want to use slash('/') to focus
 Go to this website to see all versions of Slash-to-Search: https://github.com/khotyn/Slash-to-Search/downloads
 
 3. How to use it
-Go to the extension page of chrome, and click of option page link of Slash-to-Search. You could click the 'Add rule' button to add a rule, write the url you want use Slash-to-Search(Support regular expression)(eg: http://www.khotyn.com) and the search element id of the page(eg: 's' for http://www.khotyn.com).
-
-4. How to get the search element id of the page
-Right-click the search input area, click 'Inspect Element' and you will see the id of the element
+Open a website and right click on a editable area, then click the "Add to Slash-to-Search" button; In the new open option page, those the type of the rule and click the 'Add' button. Now you can go back to the website and type slash('/'), see what happens? 
 
 4. Feedback
 Just email to hting1@gmail.com or go to this website to report a bug: https://github.com/khotyn/Slash-to-Search/issues

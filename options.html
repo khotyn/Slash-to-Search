@@ -17,7 +17,6 @@
 </div>
 <hr />
 <div class="buttons">
-<button id="add_rules" class="button">Add rule</button>
 <button id="remove_rules" class="button">Remove all rules</button>
 </div>
 </div>
@@ -27,9 +26,12 @@
 Add rule
 </div>
 <div class="add_rules">
+<form method="get">
 <div class="input_text"><label for="url" style="display:inline-block;">URL</label><br/><input placeholder="http://www.khotyn.com" type="text" id="url" class="text"/></div>
-<div class="input_text" style="margin-top:1%"><label for="searchId">Search input id</label><br/><input placeholder="The search element id" type="text" id="searchId" class="text"/></div>
+<div class="input_text" style="margin-top:1%"><label for="searchId">Type</label><br/><select id="type"><option value="normal" selected>Normal</option><option value="regex">Regex</option></select></div>
 <div class="input_text" style="margin-top:1%"><button id="add">add</button><button id="close_img">close</button></div>
+<input type="hidden" id="tree_route"/>
+</form>
 </div>
 </div>
 </body>

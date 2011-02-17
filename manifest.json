@@ -6,7 +6,7 @@
 	"content_scripts": [
 		{
 			"matches": ["*://*/*"],
-			"js": ["s2s.js"]
+			"js": ["s2s.js", "jquery.js"]
 		}	
 	],
 	"permissions": [
