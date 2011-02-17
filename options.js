@@ -6,7 +6,7 @@ $(function(){
 		show_rules();
 		var bg_obj = chrome.extension.getBackgroundPage();
 		if( bg_obj.quick_add == true ) {
-			toggle_show_add_rules();
+			//toggle_show_add_rules();
 			if(bg_obj.url != undefined && bg_obj.search_id != undefined) {
 				$('#url').attr('value', bg_obj.url);
 				$('#searchId').attr('value', bg_obj.search_id);
@@ -14,6 +14,8 @@ $(function(){
 			bg_obj.quick_add = false;
 			bg_obj.url = undefined;
 			bg_obj.search_id = undefined;
+			//toggle_show_add_rules();
+			setTimeout('toggle_show_add_rules()', 10);
 		}
 		});
 
@@ -71,10 +73,10 @@ function toggle_show_add_rules() {
 	} else {
 		var windowWidth = document.body.clientWidth;
 		var windowHeight = document.body.clientHeight;
-		while (windowWidth <= 0 || windowHeight <= 0 ) {
-			windowWidth = docuement.body.clientWidth;
-			windowHeight = document.body.clientHeight;
-		}
+		//while (windowWidth <= 0 || windowHeight <= 0 ) {
+		//	windowWidth = document.body.clientWidth;
+		//	windowHeight = document.body.clientHeight;
+		//}
 		var popwinWidth = $('#popwin').width();
 		var popwinHeight = $('#popwin').height();
 		$('#popwin').css('left', (windowWidth - popwinWidth) / 2).css('top', (windowHeight - popwinHeight) / 2).css('visibility', 'visible');
