@@ -1,0 +1,22 @@
+<script>
+var tree_route;
+var url;
+var quick_add = false;
+chrome.extension.onRequest.addListener(
+        function(request, sender, return_storage){
+            if( request.type == 'get_tab_id') {
+                chrome.pageAction.show(sender.tab.id);
+            } else if (request.type == 'send_ele_id') {
+                tree_route = request.tree_route;             
+            } else {
+                return_storage(JSON.parse(localStorage.getItem('u2sMappings')));
+            }
+        }
+        );
+function add_rule (info, tab) {
+    url = tab.url;
+    quick_add = true;
+    chrome.tabs.create({'url': chrome.extension.getURL('options.html')});   
+}
+chrome.contextMenus.create({'title': 'Add to Slash-to-Search','contexts': ['editable'], 'onclick': add_rule});
+</script>

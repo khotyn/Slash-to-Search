@@ -1,7 +1,7 @@
 {
 	"name": "slash to search",
 	"version": "0.1",
-	"description": "你是如此地喜欢用键盘来操纵一些，VIM是你最爱的编辑器，每进入一个网站，用鼠标去点击搜索框让你感到无比的烦恼，为什么不能够再快一点呢，向twitter，douban那样，可以让你用‘/’来定位到搜索框呢，这个插件就是帮你在每一个网站实现这样的功能。",
+	"description": "Fasten your speed to search!!",
 	"icons":{"48": "icon.png", "16": "icon.png"},
 	"content_scripts": [
 		{

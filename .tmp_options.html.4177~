@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Slash to Search Options</title>
+<link rel="stylesheet" type="text/css" href="options.css">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="options.js"></script>
+</head>
+<body>
+<div class="head">
+<h2>Slash to Search Options</h2>
+</div>
+<div class="content">
+<div id="rules" class="rules">
+<hr />
+<table width="100%" class="rule_table">
+</table>
+</div>
+<hr />
+<div class="buttons">
+<button id="remove_rules" class="button">Remove all rules</button>
+</div>
+</div>
+<div id="popwin" class="float">
+<div class="empty_div"></div>
+<div class="float_top">
+Add rule
+</div>
+<div class="add_rules">
+<form method="get">
+<div class="input_text"><label for="url" style="display:inline-block;">URL</label><br/><input placeholder="http://www.khotyn.com" type="text" id="url" class="text"/></div>
+<div class="input_text" style="margin-top:1%"><label for="searchId">Type</label><br/><select id="type"><option value="normal" selected>Normal</option><option value="regex">Regex</option></select></div>
+<div class="input_text" style="margin-top:1%"><button id="add">add</button><button id="close_img">close</button></div>
+<input type="hidden" id="tree_route"/>
+</form>
+</div>
+</div>
+</body>
+</html>
