@@ -22,6 +22,12 @@
                 <button id="remove_rules" class="button">
                     Remove all rules
                 </button>
+                <button id="export_rules" class='button'>
+                    Export rules
+                </button>
+                <button id="import_rules" class="button">
+                    Import online rules
+                </button>
             </div>
         </div>
         <div id="popwin" class="float">
@@ -59,6 +65,30 @@
                     </div>
                     <input type="hidden" id="tree_route"/>
                 </form>
+            </div>
+        </div>
+        <div id="import_online_rules_div" class="float" style="height:120px">
+            <div class="empty_div">
+            </div>
+            <div class="float_top">
+                Import Online Rules
+            </div>
+            <div class="add_rules" style="height:81px">
+                <div class="input_text">
+                    <label for="url" style="display:inline-block;">
+                        Rule URL:
+                    </label>
+                    <br/>
+                    <input type="text" id="rule_url" class="text"/>
+                </div>
+                <div class="input_text" style="margin-top:1%">
+                    <button id="import">
+                        Import
+                    </button>
+                    <button id="close_import_win">
+                        close
+                    </button>
+                </div>
             </div>
         </div>
     </body>
