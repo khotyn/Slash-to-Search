@@ -1,6 +1,6 @@
 {
 	"name": "slash to search",
-	"version": "0.1",
+	"version": "0.2",
 	"description": "Fasten your speed to search!!",
 	"icons":{"48": "icon.png", "16": "icon.png"},
 	"content_scripts": [
