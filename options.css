@@ -20,6 +20,7 @@
 
 .rule_table {
     text-align: center;
+	table-layout: fixed;
 }
 
 .no_rules {
@@ -113,4 +114,8 @@ label {
 button:active {
     background: #0C66C6;
     box-shadow: 0 1px 4px #094685 inset, 0 1px 0 #598EB8;
+}
+
+div {
+	word-wrap: break-word;
 }

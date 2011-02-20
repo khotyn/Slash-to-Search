@@ -76,7 +76,7 @@ function show_rules(){
         var jsonObj = JSON.parse(u2sMappings);
         
         for (var count = 0; count < jsonObj.u2sMappings.length; count++) {
-            $('#rules > table').append('<tr><td>' + jsonObj.u2sMappings[count].url + '</td><td>' + jsonObj.u2sMappings[count].type + '</td><td><button name="edit">Edit</button><button name="delete">Delete</button><input type="hidden" value="' + jsonObj.u2sMappings[count].id + '"/></td></tr>');
+            $('#rules > table').append('<tr><td><div>' + jsonObj.u2sMappings[count].url + '</div></td><td>' + jsonObj.u2sMappings[count].type + '</td><td><button name="edit">Edit</button><button name="delete">Delete</button><input type="hidden" value="' + jsonObj.u2sMappings[count].id + '"/></td></tr>');
         }
         
         $('button[name=edit]').bind('click', edit_rule);
