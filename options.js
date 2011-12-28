@@ -1,28 +1,5 @@
 var bg_obj = chrome.extension.getBackgroundPage();
 
-$(function(){
-    $('#remove_rules').bind('click', remove_rules);
-    $('#close_img').bind('click', toggle_show_add_rules);
-    $('#close_import_win').bind('click', toggle_show_import_rules);
-    $('#add').bind('click', add_rule_btn);
-    $('#export_rules').bind('click', export_rules);
-    $('#import_rules').bind('click', toggle_show_import_rules);
-    $('#import').bind('click', import_rules);
-    show_rules();
-    
-    if (bg_obj.quick_add == true) {
-        if (bg_obj.url != undefined && bg_obj.tree_route != undefined) {
-            $('#url').attr('value', bg_obj.url);
-            $('#tree_route').attr('value', bg_obj.tree_route);
-        }
-        
-        bg_obj.quick_add = false;
-        bg_obj.url = undefined;
-        bg_obj.tree_route = undefined;
-        setTimeout('toggle_show_add_rules', 10);
-    }
-});
-
 function remove_rules(){
     localStorage.removeItem('u2sMappings');
     show_rules();
@@ -247,3 +224,26 @@ function import_rules(){
     toggle_show_import_rules();
     return false;
 }
+
+$(function(){
+    $('#remove_rules').bind('click', remove_rules);
+    $('#close_img').bind('click', toggle_show_add_rules);
+    $('#close_import_win').bind('click', toggle_show_import_rules);
+    $('#add').bind('click', add_rule_btn);
+    $('#export_rules').bind('click', export_rules);
+    $('#import_rules').bind('click', toggle_show_import_rules);
+    $('#import').bind('click', import_rules);
+    show_rules();
+    
+    if (bg_obj.quick_add == true) {
+        if (bg_obj.url != undefined && bg_obj.tree_route != undefined) {
+            $('#url').attr('value', bg_obj.url);
+            $('#tree_route').attr('value', bg_obj.tree_route);
+        }
+        
+        bg_obj.quick_add = false;
+        bg_obj.url = undefined;
+        bg_obj.tree_route = undefined;
+        setTimeout('toggle_show_add_rules()', 10);
+    }
+});
