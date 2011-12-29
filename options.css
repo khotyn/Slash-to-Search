@@ -92,8 +92,8 @@ body {
 }
 
 body {
-    background: url(/bg.png) #105C9A repeat-x 0 bottom;
-    color: white;
+    /* background: url(/bg.png) #105C9A repeat-x 0 bottom; */
+    color: black;
     vertical-align: baseline;
     font-weight: bold;
 }
