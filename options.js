@@ -234,7 +234,7 @@ $(function(){
     $('#import_rules').bind('click', toggle_show_import_rules);
     $('#import').bind('click', import_rules);
     show_rules();
-    
+
     if (bg_obj.quick_add == true) {
         if (bg_obj.url != undefined && bg_obj.tree_route != undefined) {
             $('#url').attr('value', bg_obj.url);

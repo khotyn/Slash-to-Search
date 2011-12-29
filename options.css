@@ -1,11 +1,14 @@
-body {
-	font-family: 'PT Serif', Georgia, Times, 'Times New Roman', serif;
-}
-
 .content {
     width: 700px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.rules {
+    margin: 20px auto 5px auto;
+    padding: 0;
+    border-width: 12px 20px 20px 12px;
+    -webkit-border-image: url(vignette.png) 12 20 20 12 stretch stretch;
 }
 
 .head {
@@ -24,7 +27,7 @@ body {
 
 .rule_table {
     text-align: center;
-	table-layout: fixed;
+    table-layout: fixed;
 }
 
 .no_rules {
@@ -36,12 +39,12 @@ body {
     width: 300px;
     vertical-align: middle;
     z-index: 9999;
-    background-color: #0D72D2;
+    background: url(texture.png) #EDEDED;
     height: 160px;
     visibility: hidden;
-    border: 8px;
+    border: 1px solid #B8B7B8;
     border-radius: 5px;
-    box-shadow: 0 1px 0 #4793DA inset, 0 1px 0 #0D4E86;
+    box-shadow: 5px 5px 5px #A1A1A1;
 }
 
 .empty_div {
@@ -54,14 +57,16 @@ body {
 }
 
 .float_top {
-    width: 284px;
-    opacity: 1.0;
+    width: 100%;
     height: 23px;
     margin-left: auto;
     margin-right: auto;
     line-height: 23px;
     font-weight: bold;
-    background: #0D72D2
+    font-size: small;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#E9E9E9), to(#B8B7B8));
 }
 
 .add_rules {
@@ -70,7 +75,7 @@ body {
     height: 121px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #0D72D2;
+    background: url(texture.png) #EDEDED;
 }
 
 .img_left {
@@ -78,48 +83,39 @@ body {
 }
 
 .input_text {
+	margin-top: 10px;
 }
 
 .text {
-    border-radius: 5px;
-    border: 1px solid #333;
-    line-height: normal;
-    width: 100%;
-    vertical-align: middle 9;
-    height: 25px;
-    padding: 0;
-    padding-top: 5;
+    border: 1px solid #C9C9C9;
+	border-radius: 3px;
+	width: 200px;
+	padding: 5px;
+	height: 20px;
+	font-size: 14px;
 }
 
 body {
-    /* background: url(/bg.png) #105C9A repeat-x 0 bottom; */
-    color: black;
+    background: url(texture.png) #F0F0F0;
+    color: #434343;
     vertical-align: baseline;
-    font-weight: bold;
-}
-
-button {
-    background: #0D72D2;
-    font-size: 14px !important;
-    line-height: 17px !important;
-    border: 1px solid #054388;
-    box-shadow: 0 1px 0 #4793DA inset, 0 1px 0 #0D4E86;
-    color: white;
-    cursor: pointer;
-    padding: 6px 15px;
-    border-radius: 3px;
+    font-family: 'PT Serif', Georgia, Times, 'Times New Roman', serif;
 }
 
 label {
-    font-weight: bold;
-    font-size: 14px;
-}
-
-button:active {
-    background: #0C66C6;
-    box-shadow: 0 1px 4px #094685 inset, 0 1px 0 #598EB8;
+	text-align: right;
+	display: inline-block;
+	font-size: 14px;
+	margin-right: 15px;
+	vertical-align: middle;
 }
 
 div {
-	word-wrap: break-word;
+    word-wrap: break-word;
 }
+
+input {
+	margin-right: 3px;
+	vertical-align: middle;
+}
+
