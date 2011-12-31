@@ -1,11 +1,33 @@
+// Get the background object.
 var bg_obj = chrome.extension.getBackgroundPage();
 
-function remove_rules(){
+$(function(){
+	// Binding button events.
+    $('#remove_rules').bind('click', remove_all_rules);
+    $('#close_btn').bind('click', toggle_show_import_rules);
+    $('#add').bind('click', add_rule_btn);
+    $('#import_rules').bind('click', toggle_show_import_rules);
+    $('#import').bind('click', import_rules);
+    
+    show_rules();
+
+	// Check to see if need add rule.
+    if (bg_obj.quick_add == true) {
+        if (bg_obj.url == undefined || bg_obj.tree_route == undefined) {
+            return;
+        }
+
+        setTimeout('show_add_rule()', 10);
+    }
+});
+
+function remove_all_rules(){
     localStorage.removeItem('u2sMappings');
     show_rules();
 }
 
-function add_rules(url, type, tree_route){
+// Add rule to local storage
+function add_rule(url, type, tree_route){
     if (url == undefined || url.trim() == '' || type == undefined || type.trim() == '' || tree_route == undefined || tree_route.trim() == '') {
         return;
     }
@@ -23,8 +45,7 @@ function add_rules(url, type, tree_route){
             "maxId": 1
         };
         localStorage["u2sMappings"] = JSON.stringify(jsonObj);
-    }
-    else {
+    } else {
         var u2sJson = JSON.parse(u2sMappings);
         var jsonObj = [{
             "id": ++u2sJson.maxId,
@@ -37,36 +58,47 @@ function add_rules(url, type, tree_route){
     }
 }
 
+// The event that "Add Rule" button triggers.
 function add_rule_btn(){
     var url = $('#url').attr('value');
     var type = $('#type').attr('value');
     var tree_route = $('#tree_route').attr('value');
-    add_rules(url, type, tree_route);
+    
+    add_rule(url, type, tree_route);
+    
     $('#url').attr('value', '');
     $('#type').attr('value', '');
     $('#tree_route').attr('value', '');
+    
     show_rules();
-    toggle_show_add_rules(); // to hide the add rule layer.
 }
 
+// Show all the rules
 function show_rules(){
     var u2sMappings = localStorage["u2sMappings"];
+    
+    // Clear the content under the "rule" div.
     $('#rules > table').children().remove();
     $('#no_rules').remove();
+    var jsonObj = JSON.parse(u2sMappings);
     
-    if (u2sMappings != undefined) {
+    if (u2sMappings != undefined && jsonObj.u2sMappings != undefined && jsonObj.u2sMappings.length != 0) {
+    	
+    	
+    	// Show rule table title
         $('#rules > table').append('<tr><th width="50%">URL</th><th width="25%">Type</th><th width="25%">Edit</th><tr>');
-        var jsonObj = JSON.parse(u2sMappings);
         
+        
+        // Add rules to the rule table
         for (var count = 0; count < jsonObj.u2sMappings.length; count++) {
             $('#rules > table').append('<tr><td><div>' + jsonObj.u2sMappings[count].url + '</div></td><td>' + jsonObj.u2sMappings[count].type + '</td><td><button name="edit">Edit</button><button name="delete">Delete</button><input type="hidden" value="' + jsonObj.u2sMappings[count].id + '"/></td></tr>');
         }
         
+        // Binding button event
         $('button[name=edit]').bind('click', edit_rule);
         $('button[name=delete]').bind('click', remove_rule);
-    }
-    else {
-        $('#rules').append('<p id="no_rules" class="no_rules">No rules currently, try to add one?</p>')
+    } else {
+        $('#rules').append('<p id="no_rules" class="no_rules">Oops! No rules! Try to add some!</p>')
     }
 }
 
@@ -108,6 +140,7 @@ function edit_rule(event){
     }
     
     tr.append('<td><input type="text" class="text" style="width:100%;" value="' + rule.url + '"/></td><td><select>' + option_ele + '</select></td><td><button name="done">Done</button><button name="delete">Delete</button><input type="hidden" value="' + rule.id + '"/></td>');
+    
     $('button[name=done]').bind('click', save_rule);
     $('button[name=delete]').bind('click', remove_rule);
 }
@@ -156,35 +189,28 @@ function remove_rule(event){
     show_rules();
 }
 
-function export_rules(){
-    var file_path;
-    try {
-        var data = localStorage['u2sMappings'];
-        if (!data) {
-            alert('No rule to export!');
-            return;
-        }
-        file_path = bg_obj.plugin.writeTempFile(localStorage['u2sMappings'], "rules.json");
-        
-        if (!file_path || file_path.trim().length == 0) {
-            throw 'Error';
-        }
-    } 
-    catch (e) {
-        alert('Unknown error!');
-        return;
-    }
-    
-    if (file_path.substr(0, 7) != 'file://') {
-        file_path = 'file://' + file_path;
-    }
-    chrome.tabs.create({
-        'url': file_path
-    });
+function show_add_rule(){
+	var u2sMappings = localStorage["u2sMappings"];
+	
+	if(u2sMappings == undefined || JSON.parse(u2sMappings).u2sMappings.length == 0){
+		$('#no_rules').remove();
+		$('#rules > table').append('<tr><th width="50%">URL</th><th width="25%">Type</th><th width="25%">Edit</th><tr>');
+	}
+	
+	// Add interact DOM.
+	$('#rules > table').append('<tr><td><input type="text" id="url" class="text" style="width:100%;" value="' + bg_obj.url + '"/></td><td><select id="type"><option value="normal" selected>Normal</option> <option value="regex">Regex</option></select></td><td><button id="add_rule">Add</button><button id="cancel_add">Cancel</button><input type="hidden" id="tree_route" value="' + bg_obj.tree_route +'"/></td></tr>');
+	
+	$('#add_rule').bind('click', add_rule_btn);
+	$('#cancel_add').bind('click', cancel_add_rule);
+	
+	// Clear context.
+	bg_obj.quick_add = false;
+    bg_obj.url = undefined;
+    bg_obj.tree_route = undefined;
 }
 
-function toggle_show_add_rules(){
-    toggle_show_popwin('#popwin', '#url');
+function cancel_add_rule(){
+	show_rules();
 }
 
 function toggle_show_import_rules(){
@@ -208,7 +234,7 @@ function import_rules(){
                     var u2sMappings = JSON.parse(xhr.responseText).u2sMappings;
                     if (u2sMappings) {
                         for (var i = 0; i < u2sMappings.length; i++) {
-                            add_rules(u2sMappings[i].url, u2sMappings[i].type, u2sMappings[i].tree_route);
+                            add_rule(u2sMappings[i].url, u2sMappings[i].type, u2sMappings[i].tree_route);
                         }
                         $('#rule_url').attr('value', '');
                         show_rules();
@@ -224,26 +250,3 @@ function import_rules(){
     toggle_show_import_rules();
     return false;
 }
-
-$(function(){
-    $('#remove_rules').bind('click', remove_rules);
-    $('#close_img').bind('click', toggle_show_add_rules);
-    $('#close_import_win').bind('click', toggle_show_import_rules);
-    $('#add').bind('click', add_rule_btn);
-    $('#export_rules').bind('click', export_rules);
-    $('#import_rules').bind('click', toggle_show_import_rules);
-    $('#import').bind('click', import_rules);
-    show_rules();
-
-    if (bg_obj.quick_add == true) {
-        if (bg_obj.url != undefined && bg_obj.tree_route != undefined) {
-            $('#url').attr('value', bg_obj.url);
-            $('#tree_route').attr('value', bg_obj.tree_route);
-        }
-        
-        bg_obj.quick_add = false;
-        bg_obj.url = undefined;
-        bg_obj.tree_route = undefined;
-        setTimeout('toggle_show_add_rules()', 10);
-    }
-});

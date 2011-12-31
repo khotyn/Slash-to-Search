@@ -9,8 +9,7 @@
     </head>
     <body>
         <p align="center">
-            <span style="font-size:larger;font-weight:bolder;">Slash to Search</span>
-            <span style="font-size:x-small;">powed by khotyn</span>
+            <span class="title">Slash to Search</span>
         </p>
         <div class="content">
             <div id="rules" class="rules">
@@ -19,71 +18,30 @@
             </div>
             <hr/>
             <div class="buttons">
+            	<span style="font-size:smaller;">powered by khotyn@<a href="http://khotyn.com">khotyn.com</a></span>
                 <button id="remove_rules" class="button">
                     Remove all rules
-                </button>
-                <button id="export_rules" class='button'>
-                    Export rules
                 </button>
                 <button id="import_rules" class="button">
                     Import online rules
                 </button>
             </div>
         </div>
-        <div id="popwin" class="float">
-            <div class="empty_div">
-            </div>
-            <div class="float_top">
-                Add rule
-            </div>
-            <div class="add_rules">
-                <form method="get">
-                    <div class="input_text">
-                        <label for="url" style="display:inline-block;">
-                            URL
-                        </label>
-                        <br/>
-                        <input placeholder="http://www.khotyn.com" type="text" id="url" class="text"/>
-                    </div>
-                    <div class="input_text" style="margin-top:1%">
-                        <label for="searchId">
-                            Type
-                        </label>
-                        <br/>
-                        <select id="type">
-                            <option value="normal" selected>Normal</option>
-                            <option value="regex">Regex</option>
-                        </select>
-                    </div>
-                    <div class="input_text" style="margin-top:1%">
-                        <button id="add">
-                            add
-                        </button>
-                        <button id="close_img">
-                            close
-                        </button>
-                    </div>
-                    <input type="hidden" id="tree_route"/>
-                </form>
-            </div>
-        </div>
+        
+        <!-- Import Online Rules -->
         <div id="import_online_rules_div" class="float" style="height:120px">
             <div class="float_top">
-                <p align="center" style="margin-top:0px;">
-                    Import Online Rules
-                </p>
+                <p align="center" class="float_title">Import Online Rules</p>
+                <p id="close_btn" class="close_btn">x</p>            
             </div>
-            <div class="add_rules" style="height:81px">
+            <div class="add_rules" style="height:97px">
                 <div class="input_text">
-                    <label>Rule URL:</label><input type="text" id="rule_url" class="text"/>
-                </div>
-                <div class="input_text" style="margin-top:1%">
-                    <button id="import">
+					<div align="center">
+					<input type="text" id="rule_url" class="text"/>
+                    <button id="import" class="float_btn">
                         Import
                     </button>
-                    <button id="close_import_win">
-                        close
-                    </button>
+					</div>
                 </div>
             </div>
         </div>

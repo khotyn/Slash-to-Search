@@ -1,3 +1,38 @@
+body {
+    background: url(texture.png) #F0F0F0;
+    color: #434343;
+    vertical-align: baseline;
+    font-family: 'PT Serif', Georgia, Times, 'Times New Roman', serif;
+}
+
+label {
+	text-align: right;
+	display: inline-block;
+	font-size: 14px;
+	margin-right: 15px;
+	vertical-align: middle;
+}
+
+div {
+    word-wrap: break-word;
+}
+
+input {
+	vertical-align: middle;
+	text-align: center;
+}
+
+hr {
+	margin-left: 5px;
+	margin-right: 10px;
+}
+
+.title {
+	font-size:larger;
+	font-weight:bolder;
+	color:green;
+}
+
 .content {
     width: 700px;
     margin-left: auto;
@@ -18,11 +53,13 @@
 }
 
 .buttons {
-    background-color: black;
+	margin-left: 10px;
+    margin-right: 10px;
 }
 
 .button {
     float: right;
+    margin-top: 0px;
 }
 
 .rule_table {
@@ -83,39 +120,62 @@
 }
 
 .input_text {
-	margin-top: 10px;
+	padding-top: 30px;
 }
 
 .text {
     border: 1px solid #C9C9C9;
-	border-radius: 3px;
+	border-radius: 5px;
 	width: 200px;
 	padding: 5px;
-	height: 20px;
+	height: 23px;
 	font-size: 14px;
 }
 
-body {
-    background: url(texture.png) #F0F0F0;
-    color: #434343;
-    vertical-align: baseline;
-    font-family: 'PT Serif', Georgia, Times, 'Times New Roman', serif;
-}
-
-label {
-	text-align: right;
-	display: inline-block;
+.float_btn {
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF), to(#E5E5E5));	
+	border: 1px solid #C9C9C9;
+	border-radius: 3px;
 	font-size: 14px;
-	margin-right: 15px;
 	vertical-align: middle;
+	cursor: pointer;
 }
 
-div {
-    word-wrap: break-word;
-}
-
-input {
-	margin-right: 3px;
+.float_btn:active {
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#BEBEBE), to(#E1E1E1));	
+	border: 1px solid #EDEDED;
+	border-radius: 3px;
+	font-size: 14px;
 	vertical-align: middle;
+	cursor: pointer;
 }
 
+.select {
+	margin-left: -5px;
+	height: 23px;
+}
+
+.btn_with_select {
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	margin-right: 0px;
+	padding-right: 0px;
+}
+
+.close_btn {
+	display: inline;
+	float: right;
+	padding-right: 5px;
+	font-weight: 800;
+	font-size: 20px;
+	color: #999;
+	font-family: 'Helvetica Neue';
+	margin-top: -3px;
+	cursor:pointer
+}
+
+.float_title {
+	margin-top: 0px;
+	display: inline;
+	padding-left: 65px;
+}
