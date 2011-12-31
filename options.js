@@ -80,10 +80,10 @@ function show_rules(){
     // Clear the content under the "rule" div.
     $('#rules > table').children().remove();
     $('#no_rules').remove();
-    var jsonObj = JSON.parse(u2sMappings);
+
     
-    if (u2sMappings != undefined && jsonObj.u2sMappings != undefined && jsonObj.u2sMappings.length != 0) {
-    	
+    if (u2sMappings != undefined && JSON.parse(u2sMappings).u2sMappings != undefined && JSON.parse(u2sMappings).u2sMappings.length != 0) {
+		var jsonObj = JSON.parse(u2sMappings);
     	
     	// Show rule table title
         $('#rules > table').append('<tr><th width="50%">URL</th><th width="25%">Type</th><th width="25%">Edit</th><tr>');
